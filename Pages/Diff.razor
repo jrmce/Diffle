@@ -1,0 +1,23 @@
+@page "/diff"
+@inherits DiffBase
+
+<PageTitle>Find Diffs in Directories</PageTitle>
+
+<h1>Diff</h1>
+
+<button @onclick="SetLeftDirectory">Select First Directory</button>
+<button @onclick="SetRightDirectory">Select Second Directory</button>
+@if (LeftDirectory != null && RightDirectory != null)
+{
+    <button @onclick="CompareDirectories">Compare</button>
+}
+
+@if (MissingInfo)
+{
+    <div>Missing Some Info, Try Again</div>
+}
+
+@if (DifferentFiles == true)
+{
+    <div>Directories do not match!</div>
+}
